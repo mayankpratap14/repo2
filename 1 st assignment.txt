@@ -1,0 +1,99 @@
+ #Write a function unique_elements(lst) that returns a list containing only the unique elements from the given list (order should be preserved).
+
+def unique_elements(lst):
+    unique_list = []
+    seen = set()  
+
+    for item in lst:
+        if item not in seen:
+            unique_list.append(item)
+            seen.add(item)
+    return unique_list
+input_list = [1, 2, 2, 3, 4, 1, 5]
+output_list = unique_elements(input_list)
+print(output_list)
+
+#Write a function rotate_list(lst, k) that rotates the elements of a list to the right by k positions.
+
+a = [1, 2, 3, 4, 5]
+
+# Number of positions to rotate
+n = 2  
+rotated_list = a[-n:] + a[:-n] 
+print(rotated_list)
+
+# Write a function longest_word(sentence) that returns the longest word from a given sentence.
+
+s = "I am learning Python programming language"
+words = s.split()
+
+res = ""
+
+for word in words:
+    if len(word) > len(res):
+        res = word
+
+print(res)
+
+# Write a function sum_of_digits(num) that calculates and returns the sum of digits of a number.
+
+def sumOfDigits(n):
+    sum = 0
+    while n != 0:
+
+        last = n % 10
+
+        # Add last digit to sum
+        sum += last
+
+        # Remove the last digit
+        n //= 10
+    return sum
+
+if __name__ == "__main__":
+	n = 12345
+	print(sumOfDigits(n))
+     
+     #LOOPS
+
+ # Print all numbers from 1 to 100 that are divisible by 3 or 5 but not both.
+
+for i in range(1, 101):
+    # Check if the number is divisible by 3 OR 5, AND NOT divisible by both (i.e., 15)
+    if (i % 3 == 0 or i % 5 == 0) and not (i % 15 == 0):
+        print(i)     
+#Without using Python’s built-in split() and reverse() in one line, reverse the order of words in a sentence using loops.
+def reverse_words_manual(sentence):
+    words = []
+    current_word = ""
+    for char in sentence:
+        if char == ' ':
+            if current_word:  
+                words.append(current_word)
+            current_word = ""
+        else:
+            current_word += char
+    if current_word:  # Add the last word
+        words.append(current_word)
+
+    reversed_sentence = ""
+    for i in range(len(words) - 1, -1, -1):
+        reversed_sentence += words[i]
+        if i > 0:
+            reversed_sentence += " "
+    return reversed_sentence
+
+input_sentence = "Python is fun"
+output_sentence = reverse_words_manual(input_sentence)
+print(output_sentence)
+
+# For n = 5, print a diamond pattern:
+
+
+n = 5
+
+for i in range(1, n + 1):
+    
+    print(" " * (n - i), end="")
+    # Print stars
+    print("*" * (2 * i - 1))
